@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import css from './ContactForm.module.css';
-import { addContact } from 'redux/Contacts/contactsSlice';
+import { createContactsThunk } from 'redux/Contacts/thunks';
 
 export default function ContactForm() {
   const [name, setName] = useState('');
@@ -33,7 +33,7 @@ export default function ContactForm() {
         return;
       }
     }
-    dispatch(addContact({ name, number }));
+    dispatch(createContactsThunk({ name, number }));
     resetForm();
   };
 
